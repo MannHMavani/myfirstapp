@@ -1,0 +1,18 @@
+<input type="text" [(ngModel)]="tempFacultyName"/>
+<button *ngIf="idToUpdate==-1" (click)="addStudent()">Add</button>
+<button *ngIf="idToUpdate>-1" (click)="editStudent()">Edit</button>
+<button (click)="searchStudent()">Search</button>
+<table border="1" width="80%" *ngIf="idToSearch==1">
+    <tr *ngFor="let s of faculty, index as i">
+        <td>{{ s }}</td>
+        <td><button (click)="setForEdit(s,i)">Edit</button></td> 
+        <td><button (click)="deleteStudent(i)">Delete</button></td> 
+    </tr>
+</table>
+<table border="1" width="80%" *ngIf="idToSearch!=1">
+    <tr *ngFor="let s of tempFaculty, index as i">
+        <td>{{ s }}</td>
+        <td><button (click)="setForEdit(s,i)">Edit</button></td> 
+        <td><button (click)="deleteStudent(i)">Delete</button></td> 
+    </tr>
+</table>
